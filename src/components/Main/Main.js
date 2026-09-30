@@ -11,8 +11,9 @@ function Main() {
             We are a family owned Mediterranean restaurant, focused on traditional
             recipes served with a modern twist.
           </p>
+          <button className="main-hero-button" type="button">Reserve a Table</button>
         </div>
-        <img className="main-hero-image" src="/images/greek-salad.png" alt="A traditional Greek salad" />
+        <img className="main-hero-image" src="/images/greek-salad.png" alt="A traditional Greek salad" width="680" height="486" />
       </section>
     </main>
   );

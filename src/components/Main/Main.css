@@ -3,18 +3,78 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  padding: 1rem;
+  /* Two values: top/bottom first, then left/right. More room above and below the band. */
+  padding: 2rem 1rem;
+  background-color: var(--color-primary-green);
+  color: var(--color-light);
+}
+
+/* Only the h1 inside the hero gets the yellow brand color. */
+.main-hero h1 {
+  color: var(--color-primary-yellow);
+  font-size: 3rem;
+  /* Remove the browser's default space so "Chicago" sits close under the title. */
+  margin: 0;
+}
+
+/* Keep "Chicago" close under the title, like a subtitle. */
+.main-hero h2 {
+  margin: 0;
+}
+
+/* Keep lines short enough to read comfortably. */
+.main-hero-text p {
+  max-width: 60ch;
+}
+
+/* The "Reserve a Table" call-to-action button. */
+.main-hero-button {
+  background-color: var(--color-primary-yellow);
+  color: var(--color-dark);
+  /* Buttons don't inherit the page font by default; this makes it use Karla like the rest. */
+  font: inherit;
+  font-weight: 700;
+  /* Remove the browser's default grey border. */
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  /* At least 44px tall so it's easy to tap with a thumb (Sofia is on her phone). */
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.main-hero-button:hover {
+  /* Salmon with dark text is about 5.7:1 contrast, so it's still readable. */
+  background-color: var(--color-secondary-salmon);
+}
+
+.main-hero-button:focus-visible {
+  /* Light on green is about 6:1, easy to see. The offset leaves a gap between button and ring. */
+  outline: 3px solid var(--color-light);
+  outline-offset: 3px;
 }
 
 .main-hero-image {
-  /* Never wider than its grid column; keep proportions. */
-  max-width: 100%;
+  /* Fill the whole grid column, even when the column is wider than the photo. */
+  width: 100%;
+  /* Keep proportions on phones. The width/height attributes tell the browser the shape early. */
   height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
 }
 
 /* Bigger screens (768px and up): text and image side by side. */
 @media (min-width: 768px) {
   .main-hero {
     grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .main-hero h1 {
+    font-size: 4rem;
+  }
+
+  .main-hero-image {
+    height: 24rem;
   }
 }

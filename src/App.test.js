@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders the main heading', () => {
   render(<App />);
-  const linkElement = screen.getByText(/I can do this!!!/i);
-  expect(linkElement).toBeInTheDocument();
+  // getByRole finds an element the way a screen reader sees it, not by class name.
+  const heading = screen.getByRole('heading', { level: 1, name: /little lemon/i });
+  expect(heading).toBeInTheDocument();
 });

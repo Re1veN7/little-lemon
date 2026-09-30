@@ -1,0 +1,20 @@
+/* Mobile first: one column, text on top and image below. */
+.main-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.main-hero-image {
+  /* Never wider than its grid column; keep proportions. */
+  max-width: 100%;
+  height: auto;
+}
+
+/* Bigger screens (768px and up): text and image side by side. */
+@media (min-width: 768px) {
+  .main-hero {
+    grid-template-columns: 1fr 1fr;
+  }
+}

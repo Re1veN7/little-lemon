@@ -1,0 +1,17 @@
+/* Mobile first: these styles are for small screens, links stacked in a column. */
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* Browsers add default spacing to lists; reset it. */
+  margin: 0;
+  padding: 0;
+}
+
+/* Bigger screens (768px and up): put the links side by side. */
+@media (min-width: 768px) {
+  .nav-list {
+    flex-direction: row;
+  }
+}

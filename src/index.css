@@ -1,13 +1,27 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Global styles: they apply to the whole app. Component styles live in each component's folder. */
+
+/* Little Lemon brand colors and fonts, stored as CSS variables (custom properties).
+   Change a value here once and every place that uses it updates. */
+:root {
+  --color-primary-green: #495e57;
+  --color-primary-yellow: #f4ce14;
+  --color-secondary-salmon: #ee9972;
+  --color-secondary-peach: #fbdabb;
+  --color-light: #edefee;
+  --color-dark: #333333;
+
+  --font-body: 'Karla', sans-serif;
+  --font-heading: 'Markazi Text', serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  /* Remove the browser's default space around the page. */
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-dark);
+}
+
+h1,
+h2 {
+  font-family: var(--font-heading);
 }

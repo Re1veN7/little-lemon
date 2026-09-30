@@ -1,0 +1,33 @@
+/* Mobile first: the four footer blocks are stacked in one column. */
+.footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 1rem;
+  background-color: var(--color-primary-green);
+  color: var(--color-light);
+}
+
+/* Links are blue by default, which is hard to read on green. "inherit" copies the footer's text color. */
+.footer a {
+  color: inherit;
+}
+
+.footer-logo {
+  max-width: 120px;
+  height: auto;
+}
+
+/* Remove bullets and the browser's default list spacing. */
+.footer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Bigger screens (768px and up): four columns side by side. */
+@media (min-width: 768px) {
+  .footer {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

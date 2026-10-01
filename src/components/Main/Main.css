@@ -29,12 +29,16 @@
 
 /* The "Reserve a Table" call-to-action button. */
 .main-hero-button {
+  /* It's a link (inline by default). inline-block lets padding and min-height work like a button. */
+  display: inline-block;
+  /* Links measure height without padding; border-box makes the 44px include it, like a real button. */
+  box-sizing: border-box;
+  text-decoration: none;
   background-color: var(--color-primary-yellow);
   color: var(--color-dark);
-  /* Buttons don't inherit the page font by default; this makes it use Karla like the rest. */
+  /* Inherit the font family from the hero band, but make it bold. */
   font: inherit;
   font-weight: 700;
-  /* Remove the browser's default grey border. */
   border: none;
   border-radius: 0.5rem;
   padding: 0.75rem 1.5rem;

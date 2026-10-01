@@ -5,7 +5,7 @@ function Header() {
   return (
     <header>
       <img className="header-logo" src="/images/logo-green-yellow-lemon.png" alt="Little Lemon logo" />
-      <Nav />
+      <Nav label="Main" listClassName="nav-list" />
     </header>
   );
 }

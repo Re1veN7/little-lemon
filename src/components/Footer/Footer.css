@@ -13,9 +13,19 @@
   color: inherit;
 }
 
+/* Browsers show <address> in italics by default; this matches the rest of the footer. */
+.footer-contact {
+  font-style: normal;
+}
+
+/* The logo is dark green on a transparent background, so it disappears on the green footer.
+   A light card behind it restores the contrast (about 6:1). */
 .footer-logo {
   max-width: 120px;
   height: auto;
+  background-color: var(--color-light);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 /* Remove bullets and the browser's default list spacing. */

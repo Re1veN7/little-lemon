@@ -15,8 +15,8 @@ function Footer() {
         <h2>Contact</h2>
         <p>678 Pisa Ave, Chicago, IL 60611</p>
         {/* "tel:" and "mailto:" links open the phone app or email app. */}
-        <p><a href="tel:+13125932744">(312) 593-2744</a></p>
-        <p><a href="mailto:customer@littlelemon.com">customer@littlelemon.com</a></p>
+        <p><a href="tel:+13125550123">(312) 555-0123</a></p>
+        <p><a href="mailto:customer@example.com">customer@example.com</a></p>
       </address>
 
       <section>

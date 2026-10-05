@@ -3,3 +3,21 @@
   /* Keeps the image's proportions when the width changes. */
   height: auto;
 }
+
+/* Mobile first: logo on top, links below, both centered. */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Bigger screens (768px and up): logo on the left, links on the right.
+   align-items: center (from above) now centers them vertically, because the axes switched. */
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

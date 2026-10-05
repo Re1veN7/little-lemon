@@ -1,17 +1,44 @@
-/* Mobile first: these styles are for small screens, links stacked in a column. */
+/* Links sit side by side and wrap onto new lines when they don't fit, centered on every screen size. */
 .nav-list {
   list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   /* Browsers add default spacing to lists; reset it. */
   margin: 0;
   padding: 0;
 }
 
-/* Bigger screens (768px and up): put the links side by side. */
-@media (min-width: 768px) {
-  .nav-list {
-    flex-direction: row;
-  }
+/* Header links: brand green, no underline, and big enough to tap easily. */
+.nav-list a {
+  /* Links are inline by default; block lets min-height and padding work. */
+  display: block;
+  /* The 44px includes the padding (links default to content-box). */
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 0.75rem 0.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--color-primary-green);
+  font-weight: 700;
+}
+
+.nav-list a:hover {
+  /* Green text on peach is about 5.2:1, still readable. */
+  background-color: var(--color-secondary-peach);
+}
+
+.nav-list a:focus-visible {
+  /* Outlines need 3:1; green on white is about 7:1. */
+  outline: 3px solid var(--color-primary-green);
+  outline-offset: 2px;
+}
+
+/* The link for the current page. NavLink adds the "active" class automatically.
+   A background, not just a color change, so it doesn't rely on color alone. */
+.nav-list a.active {
+  /* Green text on yellow is about 4.5:1, so it just passes. */
+  background-color: var(--color-primary-yellow);
 }

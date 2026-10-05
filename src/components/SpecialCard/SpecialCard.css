@@ -1,0 +1,34 @@
+/* One dish card: a light, rounded box. */
+.special-card {
+  background-color: var(--color-light);
+  border-radius: 0.5rem;
+  /* Cut off the image's square corners so they follow the card's rounded corners. */
+  overflow: hidden;
+}
+
+.special-card-image {
+  /* Images are inline by default, which leaves a small gap under them; block removes it. */
+  display: block;
+  width: 100%;
+  /* Every card's photo gets the same height, so the cards line up. The fixed height also reserves the space before the image loads. */
+  height: 12rem;
+  object-fit: cover;
+}
+
+/* The text keeps some space from the card's edges; the image stays edge to edge. */
+.special-card-title,
+.special-card p {
+  padding: 0 1rem;
+}
+
+/* h3 isn't covered by the heading-font rule in index.css, so set it here. */
+.special-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+}
+
+.special-card-price {
+  font-weight: 700;
+  /* Green on the light card is about 6:1; salmon would be only about 1.9:1. */
+  color: var(--color-primary-green);
+}

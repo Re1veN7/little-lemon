@@ -1,5 +1,6 @@
 import './Main.css';
 import { Link } from 'react-router';
+import Specials from '../Specials/Specials';
 
 function Main() {
   return (
@@ -16,6 +17,7 @@ function Main() {
         </div>
         <img className="main-hero-image" src="/images/greek-salad.png" alt="A traditional Greek salad" width="680" height="486" />
       </section>
+      <Specials />
     </main>
   );
 }

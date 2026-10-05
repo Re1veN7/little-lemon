@@ -1,0 +1,18 @@
+/* Space around the whole Specials section. */
+.specials {
+  padding: 2rem 1rem;
+}
+
+/* Mobile first: one card per row. */
+.specials-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Bigger screens (768px and up): three cards side by side. */
+@media (min-width: 768px) {
+  .specials-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

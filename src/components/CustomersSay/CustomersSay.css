@@ -5,7 +5,6 @@
 
 /* Mobile first: one review per row. */
 .customers-say-list {
-  /* BLANK 1: lay the reviews out with CSS Grid. */
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
@@ -27,15 +26,13 @@
 
 .customers-say-rating {
   font-size: 1.25rem;
-  /* BLANK 2: a brand color for the stars with at least 3:1 contrast on the light card.
-     Hint: not yellow (see the contrast note in chat). */
+  /* The stars carry meaning, so they need 3:1 contrast. Green on light is about 6:1; yellow would be only about 1.3:1. */
   color: var(--color-primary-green);
 }
 
 /* Bigger screens (768px and up): the three reviews side by side. */
 @media (min-width: 768px) {
   .customers-say-list {
-    /* BLANK 3: three equal columns. */
     grid-template-columns: repeat(3, 1fr);
   }
 }

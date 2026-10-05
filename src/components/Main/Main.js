@@ -2,6 +2,7 @@ import './Main.css';
 import { Link } from 'react-router';
 import Specials from '../Specials/Specials';
 import CustomersSay from '../CustomersSay/CustomersSay';
+import Chicago from '../Chicago/Chicago';
 
 function Main() {
   return (
@@ -20,6 +21,7 @@ function Main() {
       </section>
       <Specials />
       <CustomersSay />
+      <Chicago />
     </main>
   );
 }

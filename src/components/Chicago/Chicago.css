@@ -1,0 +1,39 @@
+/* Mobile first: text on top, photo below. */
+.chicago {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
+
+/* The subtitle is a <p>, but it should look like part of the heading. */
+.chicago-subtitle {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+/* The section's h2 sits right above the subtitle, with no browser gap. */
+.chicago h2 {
+  margin: 0;
+}
+
+.chicago-image {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+/* Bigger screens (768px and up): text on the left, photo on the right. */
+@media (min-width: 768px) {
+  .chicago {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .chicago-image {
+    /* The photo is tall (2:3). A fixed height with cover stops it from making the section huge. */
+    height: 28rem;
+    object-fit: cover;
+  }
+}

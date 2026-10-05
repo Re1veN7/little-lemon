@@ -10,7 +10,7 @@ function Main() {
       <section className="main-hero">
         <div className="main-hero-text">
           <h1>Little Lemon</h1>
-          <h2>Chicago</h2>
+          <p className="main-hero-subtitle">Chicago</p>
           <p>
             We are a family owned Mediterranean restaurant, focused on traditional
             recipes served with a modern twist.

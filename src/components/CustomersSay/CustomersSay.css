@@ -17,9 +17,7 @@
   padding: 1rem;
 }
 
-/* h3 isn't covered by the heading-font rule in index.css, so set it here. */
 .customers-say-name {
-  font-family: var(--font-heading);
   font-size: 1.5rem;
   margin: 0;
 }

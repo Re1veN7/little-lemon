@@ -21,9 +21,7 @@
   padding: 0 1rem;
 }
 
-/* h3 isn't covered by the heading-font rule in index.css, so set it here. */
 .special-card-title {
-  font-family: var(--font-heading);
   font-size: 1.5rem;
 }
 

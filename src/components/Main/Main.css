@@ -18,7 +18,9 @@
 }
 
 /* Keep "Chicago" close under the title, like a subtitle. */
-.main-hero h2 {
+.main-hero-subtitle {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
   margin: 0;
 }
 

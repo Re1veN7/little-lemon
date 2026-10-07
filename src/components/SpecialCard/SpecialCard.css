@@ -23,6 +23,24 @@
 
 /* The card title's font, size and weight come from the global h3 rule in index.css. */
 
+/* The "Order a delivery" link at the bottom of the card, with its icon on the right. */
+.special-card-order {
+  /* inline-flex puts the text and the icon in a row and centers them vertically. */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  margin: 0 1rem 1rem;
+  /* Green on the light card is about 6:1. */
+  color: var(--color-primary-green);
+  font-weight: 700;
+}
+
+.special-card-order:focus-visible {
+  outline: 3px solid var(--color-primary-green);
+  outline-offset: 2px;
+}
+
 /* Style guide: highlight text such as a price is 16px Medium. */
 .special-card-price {
   font-weight: 500;

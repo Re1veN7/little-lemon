@@ -3,6 +3,22 @@
   padding: 2rem 1rem;
 }
 
+/* Title on the left, "Online Menu" button on the right. On narrow screens the button
+   wraps onto its own line instead of squeezing the title. */
+.specials-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* The flex row handles the spacing, so the heading's browser margin isn't needed. */
+.specials-header h2 {
+  margin: 0;
+}
+
 /* Mobile first: one card per row. */
 .specials-list {
   display: grid;

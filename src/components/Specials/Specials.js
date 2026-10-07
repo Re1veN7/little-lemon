@@ -1,4 +1,5 @@
 import SpecialCard from '../SpecialCard/SpecialCard';
+import LinkButton from '../LinkButton/LinkButton';
 import './Specials.css';
 
 // PLACEHOLDER DATA: the names, prices and descriptions are placeholders.
@@ -34,7 +35,12 @@ const specials = [
 function Specials() {
   return (
     <section className="specials">
-      <h2>This week's specials</h2>
+      {/* The title and the menu button share one row on wider screens. */}
+      <div className="specials-header">
+        <h2>This week's specials</h2>
+        {/* Same destination as the nav's "Menu" link. */}
+        <LinkButton to="/menu">Online Menu</LinkButton>
+      </div>
       <div className="specials-list">
         {specials.map((dish) => (
           <SpecialCard

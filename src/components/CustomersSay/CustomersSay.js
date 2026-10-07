@@ -20,7 +20,21 @@ const reviews = [
     rating: 5,
     text: 'Placeholder: the lemon dessert alone is worth the trip.',
   },
+  {
+    id: 'casey-demo',
+    name: 'Casey Demo',
+    rating: 4,
+    text: 'Placeholder: friendly service and a quick table on a busy Friday night.',
+  },
 ];
+
+// Turns "Alex Example" into "AE": split the name into words, take each word's first letter, join them.
+function getInitials(name) {
+  return name
+    .split(' ')
+    .map((word) => word[0])
+    .join('');
+}
 
 function CustomersSay() {
   return (
@@ -29,7 +43,13 @@ function CustomersSay() {
       <div className="customers-say-list">
         {reviews.map((review) => (
           <article className="customers-say-card" key={review.id}>
-            <h3 className="customers-say-name">{review.name}</h3>
+            <div className="customers-say-person">
+              {/* aria-hidden: the initials only repeat the name next to them, so screen readers skip them. */}
+              <span className="customers-say-avatar" aria-hidden="true">
+                {getInitials(review.name)}
+              </span>
+              <h3 className="customers-say-name">{review.name}</h3>
+            </div>
             <p className="customers-say-rating" role="img" aria-label={`Rated ${review.rating} out of 5`}>
               {'★'.repeat(review.rating)}
             </p>

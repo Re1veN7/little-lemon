@@ -1,5 +1,5 @@
 /* Mobile first: one column, text on top and image below. */
-.main-hero {
+.call-to-action {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
@@ -10,7 +10,7 @@
 }
 
 /* Only the h1 inside the hero gets the yellow brand color. */
-.main-hero h1 {
+.call-to-action h1 {
   color: var(--color-primary-yellow);
   font-size: 3rem;
   /* Remove the browser's default space so "Chicago" sits close under the title. */
@@ -18,19 +18,19 @@
 }
 
 /* Keep "Chicago" close under the title, like a subtitle. */
-.main-hero-subtitle {
+.call-to-action-subtitle {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   margin: 0;
 }
 
 /* Keep lines short enough to read comfortably. */
-.main-hero-text p {
+.call-to-action-text p {
   max-width: 60ch;
 }
 
 /* The "Reserve a Table" call-to-action button. */
-.main-hero-button {
+.call-to-action-button {
   /* It's a link (inline by default). inline-block lets padding and min-height work like a button. */
   display: inline-block;
   /* Links measure height without padding; border-box makes the 44px include it, like a real button. */
@@ -49,18 +49,18 @@
   cursor: pointer;
 }
 
-.main-hero-button:hover {
+.call-to-action-button:hover {
   /* Salmon with dark text is about 5.7:1 contrast, so it's still readable. */
   background-color: var(--color-secondary-salmon);
 }
 
-.main-hero-button:focus-visible {
+.call-to-action-button:focus-visible {
   /* Light on green is about 6:1, easy to see. The offset leaves a gap between button and ring. */
   outline: 3px solid var(--color-light);
   outline-offset: 3px;
 }
 
-.main-hero-image {
+.call-to-action-image {
   /* Fill the whole grid column, even when the column is wider than the photo. */
   width: 100%;
   /* Keep proportions on phones. The width/height attributes tell the browser the shape early. */
@@ -71,16 +71,16 @@
 
 /* Bigger screens (768px and up): text and image side by side. */
 @media (min-width: 768px) {
-  .main-hero {
+  .call-to-action {
     grid-template-columns: 1fr 1fr;
     align-items: center;
   }
 
-  .main-hero h1 {
+  .call-to-action h1 {
     font-size: 4rem;
   }
 
-  .main-hero-image {
+  .call-to-action-image {
     height: 24rem;
   }
 }

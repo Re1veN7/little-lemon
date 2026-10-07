@@ -1,20 +1,13 @@
-import { Routes, Route } from 'react-router';
 import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
-import HomePage from './pages/HomePage/HomePage';
-import BookingPage from './pages/BookingPage/BookingPage';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
+// The page frame: Header and Footer stay on every page; Main swaps the page content by URL.
 function App() {
   return (
     <>
       <Header />
-      {/* Only the Route that matches the current URL is shown here. Header and Footer stay on every page. */}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/reservations" element={<BookingPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Main />
       <Footer />
     </>
   );

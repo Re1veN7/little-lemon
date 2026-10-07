@@ -1,27 +1,18 @@
-import './Main.css';
-import { Link } from 'react-router';
-import Specials from '../Specials/Specials';
-import CustomersSay from '../CustomersSay/CustomersSay';
-import Chicago from '../Chicago/Chicago';
+import { Routes, Route } from 'react-router';
+import HomePage from '../../pages/HomePage/HomePage';
+import BookingPage from '../../pages/BookingPage/BookingPage';
+import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 
+// The one <main> landmark for the whole site. The page that matches the URL is drawn inside it,
+// so every page gets exactly one <main> without each page having to add its own.
 function Main() {
   return (
     <main>
-      <section className="main-hero">
-        <div className="main-hero-text">
-          <h1>Little Lemon</h1>
-          <p className="main-hero-subtitle">Chicago</p>
-          <p>
-            We are a family owned Mediterranean restaurant, focused on traditional
-            recipes served with a modern twist.
-          </p>
-          <Link to="/reservations" className="main-hero-button">Reserve a Table</Link>
-        </div>
-        <img className="main-hero-image" src="/images/greek-salad.png" alt="A traditional Greek salad" width="680" height="486" />
-      </section>
-      <Specials />
-      <CustomersSay />
-      <Chicago />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/reservations" element={<BookingPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </main>
   );
 }

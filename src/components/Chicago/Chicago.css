@@ -1,4 +1,4 @@
-/* Mobile first: text on top, photo below. */
+/* Mobile first: text on top, photos below. */
 .chicago {
   display: grid;
   grid-template-columns: 1fr;
@@ -23,13 +23,36 @@
   margin: 0;
 }
 
-.chicago-image {
+/* The two photos overlap. Both are placed in the SAME grid row (row 1), but in different,
+   overlapping column ranges, so the second photo sits partly on top of the first. */
+.chicago-photos {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.chicago-photo {
+  display: block;
   width: 100%;
+  /* Keeps each photo's 3:2 shape; the width/height attributes reserve the space before it loads. */
   height: auto;
   border-radius: var(--radius);
 }
 
-/* Bigger screens (768px and up): text on the left, photo on the right. */
+/* The back photo: the left 7 of the 10 columns, at the top. */
+.chicago-photo-back {
+  grid-column: 1 / 8;
+  grid-row: 1;
+}
+
+/* The front photo: the right 7 of the 10 columns, pushed down so it only covers the back photo's corner.
+   A percentage margin is measured from the container's width, so the overlap scales with the screen. */
+.chicago-photo-front {
+  grid-column: 4 / 11;
+  grid-row: 1;
+  margin-top: 35%;
+}
+
+/* Bigger screens (768px and up): text on the left, photos on the right. */
 @media (min-width: 768px) {
   .chicago {
     grid-template-columns: repeat(2, 1fr);
@@ -42,11 +65,5 @@
 
   .chicago-subtitle {
     font-size: 2.5rem;
-  }
-
-  .chicago-image {
-    /* The photo is tall (2:3). A fixed height with cover stops it from making the section huge. */
-    height: 28rem;
-    object-fit: cover;
   }
 }

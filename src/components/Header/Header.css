@@ -10,7 +10,8 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
+  /* Left/right padding uses the shared gutter, so the logo lines up with the content below. */
+  padding: 1rem var(--page-gutter);
 }
 
 /* Bigger screens (768px and up): logo on the left, links on the right.

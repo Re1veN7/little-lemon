@@ -17,6 +17,20 @@
 
   /* Style guide: rounded corners are 16px on buttons, cards and images. */
   --radius: 1rem;
+
+  /* The space between the page's content and the left/right edges of the screen.
+     Header, every section and the footer use it, so their content lines up. */
+  --page-gutter: 1rem;
+}
+
+/* Bigger screens (768px and up): a bigger gutter.
+   max() picks the larger of two values: at least 2rem, OR whatever keeps the content
+   64rem (1024px) wide and centered on wide screens. Backgrounds (like the green hero band)
+   still stretch edge to edge, because the gutter is padding inside them. */
+@media (min-width: 768px) {
+  :root {
+    --page-gutter: max(2rem, calc((100vw - 64rem) / 2));
+  }
 }
 
 body {

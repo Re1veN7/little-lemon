@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  padding: 2rem 1rem;
+  padding: 2rem var(--page-gutter);
 }
 
 /* The subtitle is a <p>, but it should look like part of the heading.

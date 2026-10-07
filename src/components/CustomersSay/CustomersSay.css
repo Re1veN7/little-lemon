@@ -1,7 +1,7 @@
 /* The testimonials sit on a light-grey band that separates them from the Specials above
    (the course wireframe asks for a background here). */
 .customers-say {
-  padding: 2rem 1rem;
+  padding: 2rem var(--page-gutter);
   background-color: var(--color-light);
 }
 

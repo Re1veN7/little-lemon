@@ -1,4 +1,4 @@
 /* Page padding so the text doesn't touch the screen edge on phones. */
 .booking-page {
-  padding: 2rem 1rem;
+  padding: 2rem var(--page-gutter);
 }

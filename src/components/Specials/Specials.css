@@ -1,6 +1,6 @@
 /* Space around the whole Specials section. */
 .specials {
-  padding: 2rem 1rem;
+  padding: 2rem var(--page-gutter);
 }
 
 /* Title on the left, "Online Menu" button on the right. On narrow screens the button

@@ -1,0 +1,53 @@
+/* One column: each label sits above its field, with even space between rows.
+   This replaces the inline style from the course's HTML starter. */
+.booking-form {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Labels: bold so they stand out from the fields under them. */
+.booking-form label {
+  font-weight: 700;
+}
+
+/* Fields fill the width on phones and are tall enough to tap easily. */
+.booking-form input,
+.booking-form select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+  color: var(--color-dark);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-primary-green);
+  border-radius: 0.5rem;
+}
+
+/* A little extra space before each new label, so the label/field pairs read as groups. */
+.booking-form input + label,
+.booking-form select + label {
+  margin-top: 0.75rem;
+}
+
+/* Submit button: brand yellow, rounded like the site's other buttons. */
+.booking-form input[type='submit'] {
+  margin-top: 1.5rem;
+  font-weight: 700;
+  background-color: var(--color-primary-yellow);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.booking-form input[type='submit']:hover {
+  background-color: var(--color-secondary-salmon);
+}
+
+/* Bigger screens (768px and up): don't stretch the fields across the whole page. */
+@media (min-width: 768px) {
+  .booking-form {
+    max-width: 28rem;
+  }
+}

@@ -33,36 +33,7 @@
   font-weight: 500;
 }
 
-/* The "Reserve a Table" call-to-action button. */
-.call-to-action-button {
-  /* It's a link (inline by default). inline-block lets padding and min-height work like a button. */
-  display: inline-block;
-  /* Links measure height without padding; border-box makes the 44px include it, like a real button. */
-  box-sizing: border-box;
-  text-decoration: none;
-  background-color: var(--color-primary-yellow);
-  color: var(--color-dark);
-  /* Inherit the font family from the hero band, but make it bold. */
-  font: inherit;
-  font-weight: 700;
-  border: none;
-  border-radius: var(--radius);
-  padding: 0.75rem 1.5rem;
-  /* At least 44px tall so it's easy to tap with a thumb (Sofia is on her phone). */
-  min-height: 44px;
-  cursor: pointer;
-}
-
-.call-to-action-button:hover {
-  /* Salmon with dark text is about 5.7:1 contrast, so it's still readable. */
-  background-color: var(--color-secondary-salmon);
-}
-
-.call-to-action-button:focus-visible {
-  /* Light on green is about 6:1, easy to see. The offset leaves a gap between button and ring. */
-  outline: 3px solid var(--color-light);
-  outline-offset: 3px;
-}
+/* The "Reserve a Table" button is a LinkButton; its styles live in LinkButton/LinkButton.css. */
 
 .call-to-action-image {
   /* Fill the whole grid column, even when the column is wider than the photo. */

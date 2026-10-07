@@ -1,5 +1,5 @@
 import './CallToAction.css';
-import { Link } from 'react-router';
+import LinkButton from '../LinkButton/LinkButton';
 
 // The hero at the top of the home page: name, location, short intro and the main booking action.
 function CallToAction() {
@@ -13,7 +13,7 @@ function CallToAction() {
           We are a family owned Mediterranean restaurant, focused on traditional
           recipes served with a modern twist.
         </p>
-        <Link to="/reservations" className="call-to-action-button">Reserve a Table</Link>
+        <LinkButton to="/reservations">Reserve a Table</LinkButton>
       </div>
       <img className="call-to-action-image" src="/images/greek-salad.png" alt="A traditional Greek salad" width="680" height="486" />
     </section>

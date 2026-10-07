@@ -4,6 +4,10 @@
   border-radius: var(--radius);
   /* Cut off the image's square corners so they follow the card's rounded corners. */
   overflow: hidden;
+  /* Stack the card's parts top to bottom as a flex column, so the delivery link can be pushed
+     to the bottom (see .special-card-order). */
+  display: flex;
+  flex-direction: column;
 }
 
 .special-card-image {
@@ -39,7 +43,11 @@
   align-items: center;
   gap: 0.5rem;
   min-height: 44px;
-  margin: 0 1rem 1rem;
+  /* margin-top: auto takes all the leftover space in the card, which pushes the link to the bottom.
+     So the links line up across cards, however long each description is. */
+  margin: auto 1rem 1rem;
+  /* In a flex column, items stretch to full width by default; this keeps the link only as wide as its text. */
+  align-self: flex-start;
   /* Green on the light card is about 6:1. */
   color: var(--color-primary-green);
   font-weight: 700;

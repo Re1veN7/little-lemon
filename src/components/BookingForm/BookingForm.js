@@ -2,7 +2,8 @@ import { useState } from 'react';
 import './BookingForm.css';
 
 // A controlled form: React state holds every field's value, and each input just shows it.
-function BookingForm() {
+// It gets the available times from Main, and reports date changes back with dispatch.
+function BookingForm({ availableTimes, dispatch }) {
   // One piece of state per field.
   const [date, setDate] = useState('');
   const [time, setTime] = useState('17:00');
@@ -10,8 +11,11 @@ function BookingForm() {
   const [guests, setGuests] = useState('1');
   const [occasion, setOccasion] = useState('Birthday');
 
-  // The times the dropdown offers. It's state because later it will change (with the date).
-  const [availableTimes] = useState(['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']);
+  // When the date changes: update our own field AND tell Main, so it can work out the new times.
+  function handleDateChange(e) {
+    setDate(e.target.value);
+    dispatch({ type: 'DATE_CHANGED', date: e.target.value });
+  }
 
   function handleSubmit(e) {
     // Stop the browser's default submit, which would reload the page and wipe the state.
@@ -25,7 +29,7 @@ function BookingForm() {
         type="date"
         id="res-date"
         value={date}
-        onChange={(e) => setDate(e.target.value)}
+        onChange={handleDateChange}
       />
 
       <label htmlFor="res-time">Choose time</label>

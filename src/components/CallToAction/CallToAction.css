@@ -3,8 +3,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  /* Two values: top/bottom first, then left/right. More room above and below the band. */
-  padding: 2rem 1rem;
+  /* Top/bottom 2rem; left/right use the shared gutter, so the hero lines up with the rest of the page. */
+  padding: 2rem var(--page-gutter);
   background-color: var(--color-primary-green);
   color: var(--color-light);
 }
@@ -36,19 +36,27 @@
 /* The "Reserve a Table" button is a LinkButton; its styles live in LinkButton/LinkButton.css. */
 
 .call-to-action-image {
+  display: block;
   /* Fill the whole grid column, even when the column is wider than the photo. */
   width: 100%;
-  /* Keep proportions on phones. The width/height attributes tell the browser the shape early. */
-  height: auto;
-  border-radius: var(--radius);
+  /* The photo is tall (about 2:3). A fixed height with cover crops it to a sensible size instead of
+     making the hero very tall. */
+  height: 20rem;
   object-fit: cover;
+  /* When cropping, keep the lower-middle part of the photo, where the tray of food is. */
+  object-position: center 65%;
+  border-radius: var(--radius);
 }
 
-/* Bigger screens (768px and up): text and image side by side. */
+/* Bigger screens (768px and up): text and image side by side, and the image hangs below the green band
+   into the white space under it (as in the course mock-up). */
 @media (min-width: 768px) {
   .call-to-action {
     grid-template-columns: 1fr 1fr;
-    align-items: center;
+    /* Text and image both start at the top, like the mock-up. */
+    align-items: start;
+    /* White space below the green band, for the image to hang into. */
+    margin-bottom: 6rem;
   }
 
   /* Style guide: display title is 64px. */
@@ -62,5 +70,8 @@
 
   .call-to-action-image {
     height: 24rem;
+    /* A negative bottom margin lets the image stick out 6rem below the band.
+       The band only grows to fit the image's height minus 6rem, so the rest hangs over the edge. */
+    margin-bottom: -6rem;
   }
 }

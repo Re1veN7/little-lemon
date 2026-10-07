@@ -15,7 +15,14 @@ function CallToAction() {
         </p>
         <LinkButton to="/reservations">Reserve a Table</LinkButton>
       </div>
-      <img className="call-to-action-image" src="/images/greek-salad.png" alt="A traditional Greek salad" width="680" height="486" />
+      {/* No loading="lazy" here: this photo is visible as soon as the page opens, so it should load right away. */}
+      <img
+        className="call-to-action-image"
+        src="/images/restauranfood.jpg"
+        alt="A server in a black apron holding a slate tray of savoury éclairs topped with salmon, ham and vegetables"
+        width="1200"
+        height="1813"
+      />
     </section>
   );
 }

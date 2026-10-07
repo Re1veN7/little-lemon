@@ -3,7 +3,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  padding: 1rem;
+  /* Left/right padding uses the shared gutter, so the footer lines up with the page above. */
+  padding: 2rem var(--page-gutter);
   background-color: var(--color-primary-green);
   color: var(--color-light);
 }

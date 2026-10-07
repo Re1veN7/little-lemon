@@ -12,17 +12,49 @@
 
   --font-body: 'Karla', sans-serif;
   --font-heading: 'Markazi Text', serif;
+
+  /* Style guide: rounded corners are 16px on buttons, cards and images. */
+  --radius: 1rem;
 }
 
 body {
   /* Remove the browser's default space around the page. */
   margin: 0;
   font-family: var(--font-body);
+  /* Style guide: paragraph text is 16px with 1.5 line height. */
+  font-size: 1rem;
+  line-height: 1.5;
   color: var(--color-dark);
 }
 
+/* Style guide: lines of text are at most 65 characters wide, so they stay easy to read. */
+p {
+  max-width: 65ch;
+}
+
+/* Style guide: headlines use Markazi Text Medium, with line height equal to the font size. */
 h1,
-h2,
-h3 {
+h2 {
   font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* Section titles use the style guide's subtitle size (40px on desktop). */
+h2 {
+  font-size: 2rem;
+}
+
+/* Every h3 on the site is a card title. Style guide: Karla, 18px, bold. */
+h3 {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+/* Bigger screens (768px and up): the big type grows to the style guide's desktop size. */
+@media (min-width: 768px) {
+  h2 {
+    font-size: 2.5rem;
+  }
 }

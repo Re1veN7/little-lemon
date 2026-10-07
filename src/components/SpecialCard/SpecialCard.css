@@ -1,7 +1,7 @@
 /* One dish card: a light, rounded box. */
 .special-card {
   background-color: var(--color-light);
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   /* Cut off the image's square corners so they follow the card's rounded corners. */
   overflow: hidden;
 }
@@ -21,12 +21,11 @@
   padding: 0 1rem;
 }
 
-.special-card-title {
-  font-size: 1.5rem;
-}
+/* The card title's font, size and weight come from the global h3 rule in index.css. */
 
+/* Style guide: highlight text such as a price is 16px Medium. */
 .special-card-price {
-  font-weight: 700;
+  font-weight: 500;
   /* Green on the light card is about 6:1; salmon would be only about 1.9:1. */
   color: var(--color-primary-green);
 }

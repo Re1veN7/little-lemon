@@ -17,16 +17,20 @@
   margin: 0;
 }
 
-/* Keep "Chicago" close under the title, like a subtitle. */
+/* Keep "Chicago" close under the title, like a subtitle.
+   Style guide: subtitle is Markazi Text Regular, 40px on desktop, line height equal to its size. */
 .call-to-action-subtitle {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
   margin: 0;
 }
 
-/* Keep lines short enough to read comfortably. */
-.call-to-action-text p {
-  max-width: 60ch;
+/* Style guide: lead text (for the home page and calls to action) is 18px Medium. */
+.call-to-action-lead {
+  font-size: 1.125rem;
+  font-weight: 500;
 }
 
 /* The "Reserve a Table" call-to-action button. */
@@ -42,7 +46,7 @@
   font: inherit;
   font-weight: 700;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   padding: 0.75rem 1.5rem;
   /* At least 44px tall so it's easy to tap with a thumb (Sofia is on her phone). */
   min-height: 44px;
@@ -65,7 +69,7 @@
   width: 100%;
   /* Keep proportions on phones. The width/height attributes tell the browser the shape early. */
   height: auto;
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   object-fit: cover;
 }
 
@@ -76,8 +80,13 @@
     align-items: center;
   }
 
+  /* Style guide: display title is 64px. */
   .call-to-action h1 {
     font-size: 4rem;
+  }
+
+  .call-to-action-subtitle {
+    font-size: 2.5rem;
   }
 
   .call-to-action-image {

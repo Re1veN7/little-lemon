@@ -9,7 +9,7 @@ function CallToAction() {
         <h1>Little Lemon</h1>
         {/* A subtitle of the h1, not a new part of the page, so it's a paragraph. */}
         <p className="call-to-action-subtitle">Chicago</p>
-        <p>
+        <p className="call-to-action-lead">
           We are a family owned Mediterranean restaurant, focused on traditional
           recipes served with a modern twist.
         </p>

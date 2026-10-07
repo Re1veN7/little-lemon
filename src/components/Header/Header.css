@@ -14,9 +14,10 @@
   padding: 1rem var(--page-gutter);
 }
 
-/* Bigger screens (768px and up): logo on the left, links on the right.
+/* Wide screens (1024px and up): logo on the left, links on the right.
+   Not at 768px: logo, six links and the page gutters don't fit in one row there, so the links wrapped.
    align-items: center (from above) now centers them vertically, because the axes switched. */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .header {
     flex-direction: row;
     justify-content: space-between;

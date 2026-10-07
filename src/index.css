@@ -9,6 +9,8 @@
   --color-secondary-peach: #fbdabb;
   --color-light: #edefee;
   --color-dark: #333333;
+  /* Pure white, for cards that sit on a light-grey band (light cards would disappear there). */
+  --color-white: #ffffff;
 
   --font-body: 'Karla', sans-serif;
   --font-heading: 'Markazi Text', serif;

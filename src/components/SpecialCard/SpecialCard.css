@@ -16,9 +16,18 @@
 }
 
 /* The text keeps some space from the card's edges; the image stays edge to edge. */
-.special-card-title,
-.special-card p {
+.special-card-heading,
+.special-card-description {
   padding: 0 1rem;
+}
+
+/* Name and price share one row: name on the left, price pushed to the right.
+   baseline lines up the bottoms of the letters, even though the two texts have different sizes. */
+.special-card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
 }
 
 /* The card title's font, size and weight come from the global h3 rule in index.css. */

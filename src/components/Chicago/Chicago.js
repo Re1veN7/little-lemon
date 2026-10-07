@@ -7,17 +7,34 @@ function Chicago() {
         <h2>Little Lemon</h2>
         {/* "Chicago" is a subtitle of the heading, not the title of a new part, so it's a paragraph, not an h3. */}
         <p className="chicago-subtitle">Chicago</p>
-        {/* PLACEHOLDER TEXT: replace with the real "About" text from the course style guide. */}
+        {/* The "About" text from the course's Little Lemon style guide ("About the brand"). */}
         <p>
-          Placeholder: Little Lemon is a family-owned Mediterranean restaurant, run by two
-          brothers who grew up cooking their grandmother's recipes.
-        </p>
-        <p>
-          Placeholder: we serve traditional dishes with a modern twist, using fresh
-          ingredients from local Chicago markets.
+          Little Lemon is a charming neighborhood bistro that serves simple food and classic
+          cocktails in a lively but casual environment. The restaurant features a
+          locally-sourced menu with daily specials.
         </p>
       </div>
-      <img className="chicago-image" src="/images/shakshuka.png" alt="Dipping a bread in a pan of shakshuka" width="1080" height="1620" />
+      {/* Two photos of the owners that overlap each other, as in the course design.
+          loading="lazy": this section is far down the page, so the browser waits to download the
+          photos until the visitor scrolls near them. That makes the top of the page load faster. */}
+      <div className="chicago-photos">
+        <img
+          className="chicago-photo chicago-photo-back"
+          src="/images/mario-and-adrian-a.jpg"
+          alt="Mario and Adrian talking over a row of dishes in the restaurant kitchen"
+          width="800"
+          height="533"
+          loading="lazy"
+        />
+        <img
+          className="chicago-photo chicago-photo-front"
+          src="/images/mario-and-adrian-b.jpg"
+          alt="Mario and Adrian laughing together in the kitchen, next to a brick pizza oven"
+          width="800"
+          height="533"
+          loading="lazy"
+        />
+      </div>
     </section>
   );
 }

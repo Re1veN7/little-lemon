@@ -25,7 +25,7 @@
   height: auto;
   background-color: var(--color-light);
   padding: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
 }
 
 /* Remove bullets and the browser's default list spacing. */

@@ -1,12 +1,14 @@
+import './NotFoundPage.css';
 import { Link } from 'react-router';
 
+// A section, not <main>: Main already wraps every page in the site's one <main>.
 function NotFoundPage() {
   return (
-    <main>
+    <section className="not-found-page">
       <h1>Page not found</h1>
       <p>We couldn't find that page. It may not be built yet.</p>
       <Link to="/">Back to the home page</Link>
-    </main>
+    </section>
   );
 }
 

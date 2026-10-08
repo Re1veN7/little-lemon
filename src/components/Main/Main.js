@@ -1,17 +1,26 @@
 import { useReducer } from 'react';
 import { Routes, Route } from 'react-router';
+import { fetchAPI } from '../../api';
+import { fromInputDate } from '../../utils/dates';
 import HomePage from '../../pages/HomePage/HomePage';
 import BookingPage from '../../pages/BookingPage/BookingPage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 
-// Builds the starting list of available times. A fixed list for now; Stage 3 asks the API.
+// Builds the starting list of available times: the times for today,
+// because the date field also starts on today.
 export function initializeTimes() {
-  return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+  const today = new Date();
+  return fetchAPI(today);
 }
 
 // The reducer: takes the current times and an action, returns the next times.
-// For now every date has the same times, so it gives back exactly what it got.
 export function updateTimes(state, action) {
+  if (action.type === 'DATE_CHANGED') {
+    // action.date is the 'YYYY-MM-DD' string from the date input, but fetchAPI needs a Date.
+    const date = fromInputDate(action.date);
+    return fetchAPI(date);
+  }
+  // Any action we don't know about leaves the times unchanged.
   return state;
 }
 

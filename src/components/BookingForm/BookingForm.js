@@ -1,11 +1,13 @@
 import { useState } from 'react';
+import { toInputDate } from '../../utils/dates';
 import './BookingForm.css';
 
 // A controlled form: React state holds every field's value, and each input just shows it.
 // It gets the available times from Main, and reports date changes back with dispatch.
 function BookingForm({ availableTimes, dispatch }) {
   // One piece of state per field.
-  const [date, setDate] = useState('');
+  // Starts on today, so the date shown matches the times Main loaded for today.
+  const [date, setDate] = useState(toInputDate(new Date()));
   const [time, setTime] = useState('17:00');
   // Kept as a string, like every input value; it's turned into a number only when it's used.
   const [guests, setGuests] = useState('1');
@@ -16,6 +18,11 @@ function BookingForm({ availableTimes, dispatch }) {
     setDate(e.target.value);
     dispatch({ type: 'DATE_CHANGED', date: e.target.value });
   }
+
+  // The times change with the date, so the time picked earlier may not exist anymore.
+  // Work out the time to show during render: keep the picked one if it's still offered,
+  // otherwise use the first offered time, or '' if there are none.
+  const selectedTime = availableTimes.includes(time) ? time : availableTimes[0] || '';
 
   function handleSubmit(e) {
     // Stop the browser's default submit, which would reload the page and wipe the state.
@@ -33,7 +40,7 @@ function BookingForm({ availableTimes, dispatch }) {
       />
 
       <label htmlFor="res-time">Choose time</label>
-      <select id="res-time" value={time} onChange={(e) => setTime(e.target.value)}>
+      <select id="res-time" value={selectedTime} onChange={(e) => setTime(e.target.value)}>
         {/* Each time is unique and stays the same between renders, so it makes a good key. */}
         {availableTimes.map((t) => (
           <option key={t} value={t}>{t}</option>

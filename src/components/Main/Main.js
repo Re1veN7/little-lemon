@@ -1,9 +1,10 @@
 import { useReducer } from 'react';
-import { Routes, Route } from 'react-router';
-import { fetchAPI } from '../../api';
+import { Routes, Route, useNavigate } from 'react-router';
+import { fetchAPI, submitAPI } from '../../api';
 import { fromInputDate } from '../../utils/dates';
 import HomePage from '../../pages/HomePage/HomePage';
 import BookingPage from '../../pages/BookingPage/BookingPage';
+import ConfirmedBooking from '../../pages/ConfirmedBooking/ConfirmedBooking';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 
 // Builds the starting list of available times: the times for today,
@@ -29,6 +30,15 @@ export function updateTimes(state, action) {
 function Main() {
   // The available times live here so the logic for "which times for which date" sits in one place.
   const [availableTimes, dispatch] = useReducer(updateTimes, undefined, initializeTimes);
+  // A function that changes the page from code, like clicking a link. Hooks go at the top level.
+  const navigate = useNavigate();
+
+  // Sends the booking to the API. If it's accepted, show the confirmation page.
+  function submitForm(formData) {
+    if (submitAPI(formData)) {
+      navigate('/confirmed');
+    }
+  }
 
   return (
     <main>
@@ -36,8 +46,9 @@ function Main() {
         <Route path="/" element={<HomePage />} />
         <Route
           path="/reservations"
-          element={<BookingPage availableTimes={availableTimes} dispatch={dispatch} />}
+          element={<BookingPage availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} />}
         />
+        <Route path="/confirmed" element={<ConfirmedBooking />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </main>

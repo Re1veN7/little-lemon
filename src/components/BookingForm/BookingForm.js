@@ -4,7 +4,7 @@ import './BookingForm.css';
 
 // A controlled form: React state holds every field's value, and each input just shows it.
 // It gets the available times from Main, and reports date changes back with dispatch.
-function BookingForm({ availableTimes, dispatch }) {
+function BookingForm({ availableTimes, dispatch, submitForm }) {
   // One piece of state per field.
   // Starts on today, so the date shown matches the times Main loaded for today.
   const [date, setDate] = useState(toInputDate(new Date()));
@@ -27,6 +27,16 @@ function BookingForm({ availableTimes, dispatch }) {
   function handleSubmit(e) {
     // Stop the browser's default submit, which would reload the page and wipe the state.
     e.preventDefault();
+    // Build the booking from state, in the shape the API should get.
+    const formData = {
+      date: date,
+      // The time shown on screen, never a stale one the new date doesn't offer.
+      time: selectedTime,
+      // Number, not parseInt: it keeps exactly what was typed (2.7 stays 2.7), so validation can catch it.
+      guests: Number(guests),
+      occasion: occasion,
+    };
+    submitForm(formData);
   }
 
   return (

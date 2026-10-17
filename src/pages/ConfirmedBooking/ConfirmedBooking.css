@@ -2,3 +2,9 @@
 .confirmed-booking {
   padding: 2rem var(--page-gutter);
 }
+
+/* The heading gets focus from code (so screen readers announce the page), not from the user.
+   It isn't a control you operate, so it doesn't need a visible focus ring. */
+.confirmed-booking h1:focus {
+  outline: none;
+}

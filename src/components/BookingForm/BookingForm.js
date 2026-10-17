@@ -57,7 +57,8 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
   }
 
   return (
-    <form className="booking-form" onSubmit={handleSubmit}>
+    // A name turns the form into a landmark that screen readers can jump to.
+    <form className="booking-form" aria-label={"Reserve a Table"} onSubmit={handleSubmit}>
       <label htmlFor="res-date">Choose date</label>
       <input
         type="date"
@@ -66,41 +67,61 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
         min={today}
         value={date}
         onChange={handleDateChange}
+        // Tells screen readers the field has a problem, and which text explains it.
+        aria-invalid={!!errors.date}
+        aria-describedby={errors.date ? "res-date-error" : undefined}
       />
-      {errors.date && <p className="field-error">{errors.date}</p>}
+      {errors.date && <p id="res-date-error" className="field-error">{errors.date}</p>}
 
       <label htmlFor="res-time">Choose time</label>
-      <select id="res-time" required value={selectedTime} onChange={(e) => setTime(e.target.value)}>
+      <select
+        id="res-time"
+        required
+        value={selectedTime}
+        onChange={(e) => setTime(e.target.value)}
+        aria-invalid={!!errors.time}
+        aria-describedby={errors.time ? "res-time-error" : undefined}
+      >
         {/* Each time is unique and stays the same between renders, so it makes a good key. */}
         {availableTimes.map((t) => (
           <option key={t} value={t}>{t}</option>
         ))}
       </select>
-      {errors.time && <p className="field-error">{errors.time}</p>}
+      {errors.time && <p id="res-time-error" className="field-error">{errors.time}</p>}
 
       <label htmlFor="guests">Number of guests</label>
       <input
         type="number"
         id="guests"
         required
-        placeholder="1"
         min="1"
         max="10"
         value={guests}
         onChange={(e) => setGuests(e.target.value)}
+        aria-invalid={!!errors.guests}
+        aria-describedby={errors.guests ? "guests-error" : undefined}
       />
-      {errors.guests && <p className="field-error">{errors.guests}</p>}
+      {errors.guests && <p id="guests-error" className="field-error">{errors.guests}</p>}
 
       <label htmlFor="occasion">Occasion</label>
-      <select id="occasion" required value={occasion} onChange={(e) => setOccasion(e.target.value)}>
+      <select
+        id="occasion"
+        required
+        value={occasion}
+        onChange={(e) => setOccasion(e.target.value)}
+        aria-invalid={!!errors.occasion}
+        aria-describedby={errors.occasion ? "occasion-error" : undefined}
+      >
         {/* Built from the same list the validator checks, so the two can't disagree. */}
         {OCCASIONS.map((o) => (
           <option key={o}>{o}</option>
         ))}
       </select>
-      {errors.occasion && <p className="field-error">{errors.occasion}</p>}
+      {errors.occasion && <p id="occasion-error" className="field-error">{errors.occasion}</p>}
 
-      <input type="submit" value="Make Your reservation" disabled={!isFormValid} />
+      {/* Option B: the aria-label matches the visible text, so voice control ("click Make Your
+          reservation") still works and screen readers say what the button does. */}
+      <input type="submit" value="Make Your reservation" aria-label={"Make Your reservation"} disabled={!isFormValid} />
     </form>
   );
 }

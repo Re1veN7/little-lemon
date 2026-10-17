@@ -82,3 +82,32 @@ describe('submit button and submission', () => {
     expect(submitForm).not.toHaveBeenCalled();
   });
 });
+
+describe('accessibility', () => {
+  test('every field is found by its label, which points at the right input', () => {
+    setupForm();
+    // getByLabelText throws if a label points at nothing, or at more than one element (duplicate ids).
+    expect(screen.getByLabelText('Choose date')).toHaveAttribute('id', 'res-date');
+    expect(screen.getByLabelText('Choose time')).toHaveAttribute('id', 'res-time');
+    expect(screen.getByLabelText('Number of guests')).toHaveAttribute('id', 'guests');
+    expect(screen.getByLabelText('Occasion')).toHaveAttribute('id', 'occasion');
+  });
+
+  test('the form is a named landmark', () => {
+    setupForm();
+    expect(screen.getByRole('form', { name: 'Reserve a Table' })).toBeInTheDocument();
+  });
+
+  test('an invalid field is marked invalid and described by its error', () => {
+    setupForm();
+    const guests = screen.getByLabelText('Number of guests');
+
+    fireEvent.change(guests, { target: { value: '0' } });
+    expect(guests).toHaveAttribute('aria-invalid', 'true');
+    expect(guests).toHaveAccessibleDescription('Please enter a whole number from 1 to 10.');
+
+    fireEvent.change(guests, { target: { value: '4' } });
+    expect(guests).toHaveAttribute('aria-invalid', 'false');
+    expect(guests).not.toHaveAccessibleDescription();
+  });
+});

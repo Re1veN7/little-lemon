@@ -6,6 +6,8 @@ import BookingForm from '../../components/BookingForm/BookingForm';
 function BookingPage({ availableTimes, dispatch, submitForm }) {
   return (
     <section className="booking-page">
+      {/* React 19 moves this into the page's <head>, so the browser tab says where you are. */}
+      <title>Reserve a Table | Little Lemon</title>
       <h1>Reserve a Table</h1>
       <p>Pick a date, time and party size, and we'll save you a table at Little Lemon.</p>
       <BookingForm availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} />

@@ -25,6 +25,13 @@
   border-radius: 0.5rem;
 }
 
+/* Keyboard focus ring, matching the nav links. Outlines need 3:1; green on white is about 7:1. */
+.booking-form input:focus-visible,
+.booking-form select:focus-visible {
+  outline: 3px solid var(--color-primary-green);
+  outline-offset: 2px;
+}
+
 /* A little extra space before each new label, so the label/field pairs read as groups. */
 .booking-form input + label,
 .booking-form select + label {

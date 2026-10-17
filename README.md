@@ -1,70 +1,186 @@
-# Getting Started with Create React App
+# Little Lemon: Reserve a Table
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React web app for a small restaurant where you can pick a date, time and party size, and book a table online.
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+This is my capstone project for the Meta Front-End Developer course.
+It builds the home page and the table booking flow for Little Lemon, a fictional family-owned Mediterranean restaurant in Chicago that the course uses as its example business.
+The focus is a booking form that works, checks what you type, and is usable with a keyboard and a screen reader.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Home page** with a hero section, this week's specials, customer reviews and a short "about us" section.
+- **Booking form** with date, time, number of guests and occasion.
+- **Available times change with the date** you pick.
+- **Validation with clear messages**: you can't pick a past date or book for fewer than 1 or more than 10 guests, and the submit button stays disabled until everything is valid.
+- **Confirmation page** after a successful booking.
+- **Responsive layout**: designed for phones first, with a wider layout from 768px up.
+- **Accessible**: every field has a label, errors are read out by screen readers, and the whole flow works with the keyboard alone.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech stack
 
-### `npm test`
+- **React 19**: builds the user interface from components.
+- **React Router 7**: moves between pages (home, booking, confirmation) without reloading.
+- **Create React App** (`react-scripts` 5): runs, tests and builds the project with no extra setup.
+- **Jest and React Testing Library**: unit tests that check the app the way a user sees it.
+- **Plain CSS** with CSS variables for the brand colours and fonts.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You need two things installed:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Node.js**, which also installs **npm**. I built and tested this project with Node.js v24.5.0. Check yours with `node -v`.
+- **Git**, to download the project. Check yours with `git --version`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The commands below work the same in macOS/Linux Terminal and in Windows PowerShell.
 
-### `npm run eject`
+### Clone the repository
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/Re1veN7/little-lemon.git
+cd little-lemon
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The first line downloads the project into a new folder called `little-lemon`. The second line moves you into that folder.
+**Why:** every command after this one must be run inside the project folder, because that's where `package.json` is.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Install the dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install
+```
 
-## Learn More
+This downloads the packages the project needs (React, React Router, the test tools) into a `node_modules` folder. It can take a minute.
+**Why first:** the start, test and build commands use these packages, so they fail until this step has run.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Start the app
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+```
 
-### Code Splitting
+This starts a local development server and opens the app in your browser at [http://localhost:3000](http://localhost:3000).
+If port 3000 is already in use, it asks to use another port; press `Y` and use the address it prints.
+Stop the server with `Ctrl + C`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Run the tests
 
-### Analyzing the Bundle Size
+```bash
+npm test -- --watchAll=false
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This runs every test once and shows the results.
 
-### Making a Progressive Web App
+You can also run `npm test` on its own. That starts **watch mode**: it waits and re-runs the tests when you change a file. On a fresh copy it may say "No tests found related to files changed since last commit". If you see that, press `a` to run all tests. Press `q` to quit watch mode.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Build for production
 
-### Advanced Configuration
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This makes an optimised version of the app, ready to put on a web server, in a new `build` folder.
+You don't need it to try the app. `npm start` is enough.
 
-### Deployment
+## Try the booking flow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Run `npm start` and click **Reservations** in the menu, or **Reserve a Table** on the home page.
+2. The date starts on today. Pick another date and watch the list of times change.
+3. Type `0` in **Number of guests**. A message appears under the field, and the **Make Your reservation** button turns faded and can't be clicked.
+4. Change it to a number from 1 to 10. The message goes away and the button works again.
+5. Choose a time and an occasion, then click **Make Your reservation** (or press `Enter` in the **Number of guests** field).
+6. You land on the **Booking Confirmed** page. Use **Back to Home** to return.
 
-### `npm run build` fails to minify
+## Project structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```text
+src/
+├── App.js
+├── index.js
+├── index.css
+├── api.js
+├── components/
+│   ├── BookingForm/
+│   ├── Main/
+│   ├── Header/
+│   ├── Nav/
+│   ├── Footer/
+│   └── ...
+├── pages/
+│   ├── HomePage/
+│   ├── BookingPage/
+│   ├── ConfirmedBooking/
+│   └── NotFoundPage/
+└── utils/
+```
+
+- `src/components/`: reusable pieces of the page. Each folder holds a component, its CSS and, where there is one, its test.
+- `src/components/BookingForm/`: the booking form, its validation functions (`validation.js`) and their tests.
+- `src/components/Main/`: the page routes and the booking logic (available times and submitting a booking).
+- `src/pages/`: one folder per page the router can show.
+- `src/utils/`: small helpers. `dates.js` converts between a date input's `YYYY-MM-DD` text and a JavaScript date.
+- `src/api.js`: the course's booking API (see [About the booking API](#about-the-booking-api)).
+- `src/index.css`: the global styles and the brand colours and fonts as CSS variables.
+
+## Testing
+
+Run the tests with `npm test -- --watchAll=false` (see [Run the tests](#run-the-tests)).
+
+Each test file sits next to the code it tests and ends in `.test.js`. The tests cover:
+
+- **The booking form**: the labels, the HTML validation attributes (`required`, `min`, `max`), the button being disabled or enabled, and that a valid booking is sent once with the right data while an invalid one is never sent.
+- **The validation functions**: valid and invalid values for each field, including the edges (for example 0, 1, 10 and 11 guests).
+- **The available-times logic** in `Main.js`, with the API replaced by a fake (a mock), so the results don't depend on today's date.
+- **Accessibility details**: each field is found by its label, the form has a name, errors are linked to their fields, and the confirmation page moves focus to its heading.
+
+**Why fake the API and fix the date in tests:** a test that uses today's real date could pass today and fail tomorrow.
+
+## Accessibility
+
+- **Labels**: every field has a `<label>` connected to it, so clicking the label focuses the field and screen readers read the label out.
+- **Error messages**: an invalid field is marked with `aria-invalid` and linked to its message with `aria-describedby`, so a screen reader reads the problem when you reach the field.
+- **Named form**: the form has the name "Reserve a Table", so screen-reader users can jump straight to it.
+- **Button name**: the submit button's accessible name matches its visible text. **Why:** voice-control users say what they see ("click Make Your reservation"), so the names must match.
+- **Page changes**: the confirmation page sets its own browser tab title and moves focus to its heading, so screen readers announce the new page.
+- **Keyboard**: everything works with `Tab`, the arrow keys and `Enter`, and every control shows a visible focus ring.
+- **Semantic HTML**: one `<h1>` per page, headings in order, and the `header`, `nav`, `main` and `footer` landmarks.
+
+## About the booking API
+
+The course provides a small booking API with two functions. A copy of it lives in [src/api.js](src/api.js):
+
+- `fetchAPI(date)` returns the available times for a date, between 17:00 and 23:30. The times depend only on the **day of the month**, so the 9th of any month always shows the same times.
+- `submitAPI(formData)` pretends to save a booking and always returns `true`.
+
+Both are plain functions that answer straight away. There is no real server or network call.
+
+**Why a local copy instead of loading it with a `<script>` tag:**
+
+1. The course file is hosted on `raw.githubusercontent.com`, which sends it as plain text with a "don't guess the type" header (`nosniff`). Browsers refuse to run it as a script, so the functions would never exist.
+2. Loading code live from someone else's repository means any later change to that file would run inside this app. A copy that I read and checked first is safer, and the tests can import it.
+
+The only change from the original is that the two functions are exported. The top of the file records where it came from and when it was reviewed.
+
+## Design
+
+There is no Figma wireframe. I skipped that step and built the pages from the course's Little Lemon style guide (colours, fonts and spacing) and its mock-up.
+
+## Known limitations
+
+- **Unbuilt pages**: the menu links to About, Menu, Order Online and Login, but those pages aren't built yet, so they show a "Page not found" page.
+- **Sample data**: the customer reviews and the contact details in the footer are made up.
+- **No real bookings**: the course API doesn't save anything, so a booking is never stored and always "succeeds".
+- **Placeholder preview image**: the `og:image` link used for social-media previews points to a placeholder address until the site is deployed.
+
+## Git workflow
+
+- Every feature or fix was built on its own branch (for example `feat/booking-form`).
+- Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/), for example `feat(booking): add booking form with controlled fields`.
+- Each branch was merged into `main` through a pull request on GitHub.
+
+## Author
+
+[Re1veN7](https://github.com/Re1veN7)
